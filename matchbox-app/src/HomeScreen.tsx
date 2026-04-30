@@ -26,6 +26,7 @@ export const HomeScreen = () => {
   const startOffset = useRef(0);
 
   const onDown = (e: React.PointerEvent) => {
+    e.preventDefault();
     e.stopPropagation();
     setDragging(true);
     startY.current = e.clientY;
@@ -36,6 +37,7 @@ export const HomeScreen = () => {
     if (!dragging) return;
 
     const move = (e: PointerEvent) => {
+      e.preventDefault();
       const delta = e.clientY - startY.current;
       const next = Math.max(CLOSED, Math.min(OPEN, startOffset.current + delta));
       setY(next);
@@ -56,7 +58,22 @@ export const HomeScreen = () => {
   }, [dragging]);
 
   return (
-    <main className="relative w-full max-w-[402px] h-screen mx-auto bg-[#ffcc00] overflow-hidden">
+    <main className="relative w-full max-w-[402px] h-[100dvh] mx-auto bg-[#ffcc00] overflow-hidden">
+
+         {/* FIXER PFEIL */}
+  <div className="absolute left-1/2 bottom-[19%] -translate-x-1/2 z-5 pointer-events-none">
+    <div className="w-14 h-14 rounded-full bg-yellow-300 flex items-center justify-center">
+      <svg
+        className="w-6 h-6 text-black"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6 9l6 6 6-6" />
+      </svg>
+    </div>
+  </div>
 
       {/* 🔻 COVER */}
       <div className="absolute top-4 left-4 right-4 z-20">
@@ -73,32 +90,17 @@ export const HomeScreen = () => {
       {/* 🔻 DRAWER */}
 <div
   onPointerDown={onDown}
-  className="absolute left-0 right-0"
+  className="absolute left-0 right-0 touch-none"
   style={{
-    top: `calc(100% - 585px)`,
+    top: `calc(100% - 59%)`,
     transform: `translateY(${y}px)`,
     transition: dragging ? "none" : "transform 0.35s cubic-bezier(.34,1.56,.64,1)",
   }}
 >
-  {/* Pfeil */}
-  <div className="flex justify-center mb-2 relative z-30">
-    <div className="w-14 h-14 rounded-full bg-yellow-300 flex items-center justify-center shadow-md">
-  <svg
-    className="w-6 h-6 text-black"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    viewBox="0 0 24 24"
-  >
-    <path d="M6 9l6 6 6-6" />
-  </svg>
-</div>
-  </div>
   
-
   {/* Tray */}
   <div className="relative">
-    <img src="/matchbox-02.png" className="w-full" draggable={false} />
+    <img src="/matchbox-02.png" className="w-full block" draggable={false} />
 
     {/* Matches */}
     <div className="absolute bottom-[50px] left-0 right-0 flex justify-center">
