@@ -58,7 +58,7 @@ export const HomeScreen = () => {
   }, [dragging]);
 
   return (
-    <main className="relative w-full max-w-[402px] h-[100dvh] mx-auto bg-[#ffcc00] overflow-hidden">
+    <main className="relative w-full max-w-[402px] h-[100dvh] mx-auto bg-[#ffcc00] overflow-hidden relative z-0">
 
          {/* FIXER PFEIL */}
   <div className="absolute left-1/2 bottom-[19%] -translate-x-1/2 z-5 pointer-events-none">
@@ -116,7 +116,7 @@ export const HomeScreen = () => {
   style={{
     filter: "drop-shadow(-4px 4px 10px rgba(0,0,0,0.5))"
   }}
-  className="w-[40px] transition-transform duration-200 group-hover:scale-110"
+  className="w-[40px] transition-transform duration-200 active:scale-110 group-hover:scale-110"
 />
     </a>
   ))}
