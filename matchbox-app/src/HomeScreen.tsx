@@ -26,6 +26,7 @@ export const HomeScreen = () => {
   const startOffset = useRef(0);
 
   const onDown = (e: React.PointerEvent) => {
+    e.preventDefault();
     e.stopPropagation();
     setDragging(true);
     startY.current = e.clientY;
@@ -36,6 +37,7 @@ export const HomeScreen = () => {
     if (!dragging) return;
 
     const move = (e: PointerEvent) => {
+      e.preventDefault();
       const delta = e.clientY - startY.current;
       const next = Math.max(CLOSED, Math.min(OPEN, startOffset.current + delta));
       setY(next);
@@ -56,49 +58,60 @@ export const HomeScreen = () => {
   }, [dragging]);
 
   return (
-    <main className="relative w-full max-w-[402px] h-screen mx-auto bg-[#ffcc00] overflow-hidden">
+    <div className="fixed inset-0 bg-[#ffcc00]">
+  
+  <main
+    className="relative w-full max-w-[402px] mx-auto overflow-hidden z-10"
+    style={{ height: "100dvh" }}
+  >
 
-      {/* 🔻 COVER */}
-      <div className="absolute top-4 left-4 right-4 z-20">
-        <div className="relative">
-          <img src="/matchbox-012.png" className="w-full" draggable={false} />
+  {/* FIXER PFEIL */}
+  <div className="absolute left-1/2 -translate-x-1/2 z-10 pointer-events-none"
+  style={{
+    top: "650px"
+  }}
+>
+    <div className="w-14 h-14 rounded-full bg-yellow-300 flex items-center justify-center">
+      <svg
+        className="w-6 h-6 text-black"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6 9l6 6 6-6" />
+      </svg>
+    </div>
+  </div>
 
-          {/* M Logo (größer) */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img src="/M.png" className="w-32" draggable={false} />
+      {/* COVER */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
+        <div className="w-[370px]">
+          <div className="relative">
+            <img src="/matchbox-012.png" className="w-full block" draggable={false} />
+
+            {/* M Logo (größer) */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <img src="/M.png" className="w-32" draggable={false} />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* 🔻 DRAWER */}
+      {/* DRAWER */}
 <div
   onPointerDown={onDown}
-  className="absolute left-0 right-0"
+  className="absolute left-0 -translate-x-1/2 w-[400px] touch-none z-10"
   style={{
-    top: `calc(100% - 585px)`,
+    top: `calc(140px + 220px)`,
     transform: `translateY(${y}px)`,
     transition: dragging ? "none" : "transform 0.35s cubic-bezier(.34,1.56,.64,1)",
   }}
 >
-  {/* Pfeil */}
-  <div className="flex justify-center mb-2 relative z-30">
-    <div className="w-14 h-14 rounded-full bg-yellow-300 flex items-center justify-center shadow-md">
-  <svg
-    className="w-6 h-6 text-black"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    viewBox="0 0 24 24"
-  >
-    <path d="M6 9l6 6 6-6" />
-  </svg>
-</div>
-  </div>
   
-
   {/* Tray */}
   <div className="relative">
-    <img src="/matchbox-02.png" className="w-full" draggable={false} />
+    <img src="/matchbox-02.png" className="w-full block" draggable={false} />
 
     {/* Matches */}
     <div className="absolute bottom-[50px] left-0 right-0 flex justify-center">
@@ -114,7 +127,7 @@ export const HomeScreen = () => {
   style={{
     filter: "drop-shadow(-4px 4px 10px rgba(0,0,0,0.5))"
   }}
-  className="w-[40px] transition-transform duration-200 group-hover:scale-110"
+  className="w-[40px] transition-transform duration-200 active:scale-110 group-hover:scale-110"
 />
     </a>
   ))}
@@ -122,5 +135,6 @@ export const HomeScreen = () => {
   </div>
 </div>
     </main>
+    </div>
   );
 };

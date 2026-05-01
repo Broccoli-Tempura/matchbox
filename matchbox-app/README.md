@@ -1,73 +1,164 @@
-# React + TypeScript + Vite
+# Matchbox Projekt
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eine interaktive Matchbox UI gebaut mit React, Vite und Tailwind CSS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- **Vite** – Build Tool & Dev Server
+- **React** – UI Struktur
+- **Tailwind CSS** – Styling
+- **PostCSS** – CSS Pipeline
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development Server starten
+
+```bash
+npm run dev
+```
+
+App im Browser öffnen:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Projektstruktur
+
+```bash
+src/
+ ├── main.tsx        # Entry Point (React Bootstrapping)
+ ├── App.tsx         # Root Component
+ ├── HomeScreen.tsx  # Matchbox UI
+ ├── index.css       # Tailwind Imports
+```
+
+---
+
+## ⚙️ Tailwind Setup
+
+### `tailwind.config.js`
 
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
   },
-])
+  plugins: [],
+};
 ```
+
+### `postcss.config.js`
+
+```js
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```
+
+### `index.css`
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+---
+
+## App Flow
+
+```
+index.html → main.tsx → App.tsx → HomeScreen.tsx
+```
+
+### `main.tsx`
+
+Startet die React App:
+
+```tsx
+ReactDOM.createRoot(...).render(<App />);
+```
+
+### `App.tsx`
+
+```tsx
+import { HomeScreen } from "./HomeScreen";
+
+export default function App() {
+  return <HomeScreen />;
+}
+```
+
+### `HomeScreen.tsx`
+
+Enthält die komplette Matchbox UI:
+
+- Cover
+- Drawer (dragable)
+- Matches
+- Interaktionen
+
+---
+
+## UI Konzept
+
+- Fixiertes Matchbox Cover oben
+- Drawer öffnet sich per Drag nach unten
+- Matches liegen im Tray
+- Hover- und Animationseffekte für Interaktionen
+
+---
+
+## Hinweise
+
+### Änderungen werden nur wirksam wenn:
+
+- Datei gespeichert ist
+- Dev Server läuft
+- Browser ggf. neu geladen wird
+
+### Tailwind funktioniert nicht?
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+npm run dev
+```
+
+---
+
+## 💡 Entwicklungsworkflow
+
+- UI in `HomeScreen.tsx` entwickeln
+- Styling mit Tailwind Utility-Klassen
+- Interaktionen über React State steuern
+- Assets in `/public` ablegen (z. B. Bilder)
+
+---
+
+## TODO (optional)
+
+- [ ] Animationen verfeinern
+- [ ] Mobile Optimierung
+- [ ] Accessibility verbessern
+- [ ] Tests hinzufügen
