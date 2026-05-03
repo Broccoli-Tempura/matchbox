@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 const CLOSED = 0;
@@ -6,16 +7,15 @@ const OPEN = 180;
 const SNAP = 70;
 
 const matches = [
-  { id: 1, href: "/link-1" },
-  { id: 2, href: "/link-2" },
-  { id: 3, href: "/link-3" },
-  { id: 4, href: "/link-4" },
-  { id: 5, href: "/link-5" },
-  { id: 6, href: "/link-6" },
-  { id: 7, href: "/link-7" },
-  { id: 8, href: "/link-8" },
-  { id: 9, href: "/link-9" },
-  { id: 10, href: "/link-10" },
+  { id: 1, to: "/match/1" },
+  { id: 2, to: "/match/2" },
+  { id: 3, to: "/match/3" },
+  { id: 4, to: "/match/4" },
+  { id: 5, to: "/select-extinguisher" },   // ← our first implemented link
+  { id: 6, to: "/match/6" },
+  { id: 7, to: "/match/7" },
+  { id: 8, to: "/match/8" },
+  { id: 9, to: "/match/9" },
 ];
 
 export const HomeScreen = () => {
@@ -116,9 +116,9 @@ export const HomeScreen = () => {
     {/* Matches */}
     <div className="absolute bottom-[50px] left-0 right-0 flex justify-center">
   {matches.map((match) => (
-    <a
+    <Link
       key={match.id}
-      href={match.href}
+      to={match.to}
       className="group relative -mx-[4px]"
     >
       <img
@@ -129,7 +129,7 @@ export const HomeScreen = () => {
   }}
   className="w-[40px] transition-transform duration-200 active:scale-110 group-hover:scale-110"
 />
-    </a>
+    </Link>
   ))}
 </div>
   </div>
