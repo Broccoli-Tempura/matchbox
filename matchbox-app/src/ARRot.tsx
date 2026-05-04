@@ -1,13 +1,55 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import '@google/model-viewer'; // HIER WIEDER HINZUGEFÜGT!
 
 const ModelViewer = 'model-viewer' as unknown as React.ElementType;
 
 // Diese Seite funktioniert jetzt mit richtigen Routen-Links.
 export function ARRot() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [stream, setStream] = useState<MediaStream | null>(null);
+
+  useEffect(() => {
+    async function startCamera() {
+      try {
+        const mediaStream = await navigator.mediaDevices.getUserMedia({
+          video: { 
+            facingMode: 'environment', // back camera on phones
+            width: { ideal: 1280 },
+            height: { ideal: 720 }
+          }
+        });
+        
+        if (videoRef.current) {
+          videoRef.current.srcObject = mediaStream;
+          await videoRef.current.play();
+          setStream(mediaStream);
+        }
+      } catch (err) {
+        console.error("Camera access denied or not available", err);
+      }
+    }
+
+    startCamera();
+
+    // Cleanup
+    return () => {
+      stream?.getTracks().forEach(track => track.stop());
+    };
+  }, []);
+
   return (
-      <div className="fixed inset-0 flex justify-center overflow-hidden">
+      <div className="fixed inset-0 flex justify-center overflow-hidden bg-black">
+      {/* 1. Live Camera Background */}
+      <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        muted
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ transform: 'scaleX(-1)' }} // optional: mirror front camera if needed
+      />
 
         {/* FULL-WIDTH BLUE TOP BAR */}
         <div className="absolute top-0 left-0 right-0 h-[56px] bg-blue-500 z-50 flex items-center px-4">
