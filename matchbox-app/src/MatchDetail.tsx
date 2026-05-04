@@ -35,11 +35,11 @@ export const MatchDetail = () => {
         <div className="absolute inset-0 flex items-center justify-center z-20 pt-[56px]">
           <div className="bg-white rounded-2xl shadow-lg p-8 max-w-[280px] text-center">
             <h2 className="text-3xl font-bold text-gray-800 mb-3">
-              Coming Soon
+              Demnächst
             </h2>
             <p className="text-gray-600">
-              This category is under development.<br />
-              More firemen stuff coming soon!
+              Diese Kategorie befindet sich derzeit im Aufbau.<br />
+              Weitere Artikel zum Thema Feuerwehr folgen in Kürze!
             </p>
           </div>
         </div>
