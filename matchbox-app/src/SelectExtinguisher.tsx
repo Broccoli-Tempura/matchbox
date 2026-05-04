@@ -8,7 +8,7 @@ export const SelectExtinguisher = () => {
     {
       id: 1,
       src: `${import.meta.env.BASE_URL}loescher01.png`,   // ← Fixed
-      top: "45%",
+      top: "40%",
       left: "25%",
       width: 120,
       rotate: "-15deg",
@@ -24,7 +24,7 @@ export const SelectExtinguisher = () => {
     {
       id: 3,
       src: `${import.meta.env.BASE_URL}loescher03.png`,
-      top: "40%",
+      top: "35%",
       left: "60%",
       width: 90,
       rotate: "8deg",
