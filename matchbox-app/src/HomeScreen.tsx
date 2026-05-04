@@ -88,11 +88,15 @@ export const HomeScreen = () => {
       <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
         <div className="w-[370px]">
           <div className="relative">
-            <img src="/matchbox-012.png" className="w-full block" draggable={false} />
+            <img 
+              src={`${import.meta.env.BASE_URL}matchbox-012.png`} 
+              className="w-full block" 
+              draggable={false} 
+        />
 
             {/* M Logo (größer) */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <img src="/M.png" className="w-32" draggable={false} />
+              <img src={`${import.meta.env.BASE_URL}M.png`} className="w-32" draggable={false} />
             </div>
           </div>
         </div>
@@ -111,7 +115,7 @@ export const HomeScreen = () => {
   
   {/* Tray */}
   <div className="relative">
-    <img src="/matchbox-02.png" className="w-full block" draggable={false} />
+    <img src={`${import.meta.env.BASE_URL}matchbox-02.png`} className="w-full block" draggable={false} />
 
     {/* Matches */}
     <div className="absolute bottom-[50px] left-0 right-0 flex justify-center">
@@ -122,7 +126,7 @@ export const HomeScreen = () => {
       className="group relative -mx-[4px]"
     >
       <img
-  src="/match.png"
+  src={`${import.meta.env.BASE_URL}match.png`}
   draggable={false}
   style={{
     filter: "drop-shadow(-4px 4px 10px rgba(0,0,0,0.5))"
