@@ -51,7 +51,7 @@ export const SelectExtinguisher = () => {
           <img 
             src="/arrow.png" 
             alt="Back" 
-            className="w-4 h-9"   // ← Adjust size here
+            className="w-4 h-9"
             draggable={false}
           />
         </Link>
