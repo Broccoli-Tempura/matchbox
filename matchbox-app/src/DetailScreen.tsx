@@ -37,7 +37,7 @@ export function DetailScreen({ onBack, onOpenAR }: { onBack: () => void, onOpenA
                 <img
                     src={`${import.meta.env.BASE_URL}ar-icon.png`}
                     alt="Info / Search"
-                    className="w-6 h-6"
+                    className="w-18 h-9"
                     draggable={false}
                 />
                 </Link>

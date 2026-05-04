@@ -33,7 +33,7 @@ export function ARScreen({onBack}: { onBack: () => void }) {
         <img
             src={`${import.meta.env.BASE_URL}lookingGlass.png`}
             alt="Info / Search"
-            className="w-6 h-6"
+            className="w-18 h-9"
             draggable={false}
         />
         </Link>
