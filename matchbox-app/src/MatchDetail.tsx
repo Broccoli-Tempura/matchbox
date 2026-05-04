@@ -10,10 +10,10 @@ export const MatchDetail = () => {
           to="/" 
           className="p-2 -ml-2 hover:bg-blue-600 rounded-xl transition-colors"
         >
-          <img 
-            src="/arrow.png" 
-            alt="Back" 
-            className="w-4 h-9" 
+          <img
+            src={`${import.meta.env.BASE_URL}arrow.png`}
+            alt="Back"
+            className="w-4 h-9"
             draggable={false}
           />
         </Link>
@@ -25,7 +25,7 @@ export const MatchDetail = () => {
         {/* CENTERED BACKGROUND IMAGE */}
         <div className="absolute inset-0 flex items-center justify-center z-0 pt-[56px]">
           <img
-            src="/inside-box.png"
+            src={`${import.meta.env.BASE_URL}inside-box.png`}
             className="max-h-[calc(100dvh-56px-80px)] w-auto object-contain"
             draggable={false}
           />
@@ -49,16 +49,16 @@ export const MatchDetail = () => {
       {/* SCATTERED BACKGROUND MATCHES */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Left side matches */}
-        <img src="/match 2.png" className="absolute left-[22%] top-[20%] w-[50px] rotate-[-35deg] opacity-100" draggable={false} />
-        <img src="/match 2.png" className="absolute left-[8%] top-[0%] w-[50px] rotate-[-12deg] opacity-100" draggable={false} />
+        <img src={`${import.meta.env.BASE_URL}match 2.png`} className="absolute left-[22%] top-[20%] w-[50px] rotate-[-35deg] opacity-100" draggable={false} />
+        <img src={`${import.meta.env.BASE_URL}match 2.png`} className="absolute left-[8%] top-[0%] w-[50px] rotate-[-12deg] opacity-100" draggable={false} />
         
         {/* Right side matches */}
-        <img src="/match 2.png" className="absolute right-[6%] top-[35%] w-[50px] rotate-[45deg] opacity-100" draggable={false} />
-        <img src="/match 2.png" className="absolute right-[26%] top-[60%] w-[50px] rotate-[25deg] opacity-100" draggable={false} />
+        <img src={`${import.meta.env.BASE_URL}match 2.png`} className="absolute right-[6%] top-[35%] w-[50px] rotate-[45deg] opacity-100" draggable={false} />
+        <img src={`${import.meta.env.BASE_URL}match 2.png`} className="absolute right-[26%] top-[60%] w-[50px] rotate-[25deg] opacity-100" draggable={false} />
         
         {/* Optional top/bottom scattered ones */}
-        <img src="/match 2.png" className="absolute left-[15%] top-[68%] w-[50px] rotate-[70deg] opacity-100" draggable={false} />
-        <img src="/match 2.png" className="absolute right-[20%] top-[12%] w-[50px] rotate-[-55deg] opacity-100" draggable={false} />
+        <img src={`${import.meta.env.BASE_URL}match 2.png`} className="absolute left-[15%] top-[68%] w-[50px] rotate-[70deg] opacity-100" draggable={false} />
+        <img src={`${import.meta.env.BASE_URL}match 2.png`} className="absolute right-[20%] top-[12%] w-[50px] rotate-[-55deg] opacity-100" draggable={false} />
       </div>
     </div>
   );

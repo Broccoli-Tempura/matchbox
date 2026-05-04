@@ -8,7 +8,7 @@ export const SelectExtinguisher = () => {
     {
       id: 1,
       src: `${import.meta.env.BASE_URL}loescher01.png`,   // ← Fixed
-      top: "35%",
+      top: "45%",
       left: "25%",
       width: 120,
       rotate: "-15deg",
@@ -16,7 +16,7 @@ export const SelectExtinguisher = () => {
     {
       id: 2,
       src: `${import.meta.env.BASE_URL}loescher02.png`,
-      top: "65%",
+      top: "75%",
       left: "65%",
       width: 140,
       rotate: "10deg",
@@ -24,7 +24,7 @@ export const SelectExtinguisher = () => {
     {
       id: 3,
       src: `${import.meta.env.BASE_URL}loescher03.png`,
-      top: "25%",
+      top: "35%",
       left: "60%",
       width: 90,
       rotate: "8deg",
@@ -32,7 +32,7 @@ export const SelectExtinguisher = () => {
     {
       id: 4,
       src: `${import.meta.env.BASE_URL}loescher04.png`,
-      top: "65%",
+      top: "75%",
       left: "25%",
       width: 80,
       rotate: "-5deg",
