@@ -18,11 +18,11 @@ export default function App() {
         <Route path="/" element={<HomeScreen />} />
         <Route path="/select-extinguisher" element={<SelectExtinguisher />} />
         <Route path="/match/:id" element={<MatchDetail />} />
-        <Route path="/ARScreen" element={<ARScreen onBack={() => {}} />} />
+        <Route path="/ARScreen" element={<ARScreen />} />
         <Route path="/ARBraun" element={<ARBraun />} />
         <Route path="/ARRot" element={<ARRot />} />
         <Route path="/ARDreieck" element={<ARDreieck />} />
-        <Route path="/DetailScreen" element={<DetailScreen onBack={() => {}} onOpenAR={() => {}} />} />
+        <Route path="/DetailScreen" element={<DetailScreen />} />
           <Route path="/DetailBraun" element={<DetailBraun />} />
           <Route path="/DetailRot" element={<DetailRot />} />
           <Route path="/DetailDreieck" element={<DetailDreieck />} />
