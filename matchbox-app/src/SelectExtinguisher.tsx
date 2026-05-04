@@ -7,7 +7,8 @@ export const SelectExtinguisher = () => {
   const items = [
     {
       id: 1,
-      src: `${import.meta.env.BASE_URL}loescher01.png`,   // ← Fixed
+      to: "/ARDreieck",
+      src: `${import.meta.env.BASE_URL}loescher01.png`,
       top: "40%",
       left: "25%",
       width: 120,
@@ -15,6 +16,7 @@ export const SelectExtinguisher = () => {
     },
     {
       id: 2,
+      to: "/ARScreen",
       src: `${import.meta.env.BASE_URL}loescher02.png`,
       top: "70%",
       left: "65%",
@@ -23,6 +25,7 @@ export const SelectExtinguisher = () => {
     },
     {
       id: 3,
+      to: "/ARBraun",
       src: `${import.meta.env.BASE_URL}loescher03.png`,
       top: "35%",
       left: "60%",
@@ -31,6 +34,7 @@ export const SelectExtinguisher = () => {
     },
     {
       id: 4,
+      to: "/ARRot",
       src: `${import.meta.env.BASE_URL}loescher04.png`,
       top: "75%",
       left: "25%",
@@ -88,7 +92,7 @@ export const SelectExtinguisher = () => {
         {items.map((item) => (
           <Link
             key={item.id}
-            to={`/extinguisher-${item.id}`}
+            to={item.to}
             onPointerDown={() => setActiveId(item.id)}
             onPointerUp={() => setActiveId(null)}
             onPointerLeave={() => setActiveId(null)}
