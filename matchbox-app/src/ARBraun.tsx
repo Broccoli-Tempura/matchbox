@@ -27,7 +27,7 @@ export function ARBraun() {
 
           {/* Right: Looking Glass Icon */}
           <Link
-              to="/DetailScreen"
+              to="/DetailBraun"
               className="hover:opacity-80 transition-opacity"
           >
             <img

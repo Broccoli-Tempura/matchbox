@@ -28,7 +28,7 @@ export function ARRot() {
 
           {/* Right: Looking Glass Icon */}
           <Link
-              to="/DetailScreen"
+              to="/DetailRot"
               className="hover:opacity-80 transition-opacity"
           >
             <img

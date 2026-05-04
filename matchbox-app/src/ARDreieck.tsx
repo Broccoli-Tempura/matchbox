@@ -28,7 +28,7 @@ export function ARDreieck() {
 
           {/* Right: Looking Glass Icon */}
           <Link
-              to="/DetailScreen"
+              to="/DetailDreieck"
               className="hover:opacity-80 transition-opacity"
           >
             <img
