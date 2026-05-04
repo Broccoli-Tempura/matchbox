@@ -58,11 +58,10 @@ export const HomeScreen = () => {
   }, [dragging]);
 
   return (
-    <div className="fixed inset-0 bg-[#ffcc00]">
+    <div className="fixed inset-0 bg-[#ffcc00] overflow-hidden">
   
   <main
-    className="relative w-full max-w-[402px] mx-auto overflow-hidden z-10"
-    style={{ height: "100dvh" }}
+    className="relative w-full max-w-[402px] mx-auto overflow-y-auto z-10 min-h-[100dvh] pb-20"
   >
 
   {/* FIXER PFEIL */}
@@ -118,7 +117,7 @@ export const HomeScreen = () => {
     <img src={`${import.meta.env.BASE_URL}matchbox-02.png`} className="w-full block" draggable={false} />
 
     {/* Matches */}
-    <div className="absolute bottom-[50px] left-0 right-0 flex justify-center">
+    <div className="absolute bottom-[50px] left-0 right-0 flex justify-center gap-1">
   {matches.map((match) => (
     <Link
       key={match.id}
