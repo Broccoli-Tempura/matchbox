@@ -9,6 +9,7 @@ export function ARScreen({onBack}: { onBack: () => void }) {
       
       {/* FULL-WIDTH BLUE TOP BAR */}
       <div className="absolute top-0 left-0 right-0 h-[56px] bg-blue-500 z-50 flex items-center px-4">
+        {/* Left: Back Button */}
         <Link 
           to="/select-extinguisher" 
           className="hover:opacity-80 transition-opacity"
@@ -21,6 +22,22 @@ export function ARScreen({onBack}: { onBack: () => void }) {
             draggable={false}
           />
         </Link>
+        {/* Spacer */}
+        <div className="flex-1"></div>
+
+        {/* Right: Looking Glass Icon */}
+        <Link
+            to="/DetailScreen" 
+            className="hover:opacity-80 transition-opacity"
+        >
+        <img
+            src={`${import.meta.env.BASE_URL}lookingGlass.png`}
+            alt="Info / Search"
+            className="w-6 h-6"
+            draggable={false}
+        />
+        </Link>
+        </div>
 
             {/* --- 3D Modell & AR Viewer --- */}
             <ModelViewer
@@ -41,6 +58,5 @@ export function ARScreen({onBack}: { onBack: () => void }) {
             </ModelViewer>
 
         </div>
-    </div>
     );
 }
