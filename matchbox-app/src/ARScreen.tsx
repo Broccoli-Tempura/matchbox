@@ -7,7 +7,7 @@ const ModelViewer = 'model-viewer' as unknown as React.ElementType;
 // Diese Seite funktioniert jetzt mit richtigen Routen-Links.
 export function ARScreen() {
     return (
-        <div className="fixed inset-0 bg-[#ffcc00] flex justify-center overflow-hidden">
+        <div className="fixed inset-0 flex justify-center overflow-hidden">
 
             {/* FULL-WIDTH BLUE TOP BAR */}
             <div className="absolute top-0 left-0 right-0 h-[56px] bg-blue-500 z-50 flex items-center px-4">
