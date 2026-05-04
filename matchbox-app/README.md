@@ -21,10 +21,29 @@ Eine interaktive Matchbox UI gebaut mit React, Vite und Tailwind CSS.
 npm install
 ```
 
-### Development Server starten
+## Deployment
 
+### Live Site
+**https://Broccoli-Tempura.github.io/matchbox**
+
+---
+
+### Important Commands
+
+| Command                  | Purpose                              | When to Use |
+|--------------------------|--------------------------------------|-------------|
+| `npm run dev`            | Start local development server       | Daily work |
+| `npm run build`          | Create production build              | Before deploying |
+| `npm run preview`        | Test the production build locally    | Before deploying |
+| **`npm run deploy`**     | **Deploy to GitHub Pages**           | Update live site |
+
+---
+
+### Quick Workflow
+
+1. Develop locally:
 ```bash
-npm run dev
+   npm run dev
 ```
 
 App im Browser öffnen:
@@ -32,6 +51,32 @@ App im Browser öffnen:
 ```
 http://localhost:5173
 ```
+
+2. Test production build:
+```bash
+  npm run build
+  npm run preview
+```
+
+3. Deploy to live site:
+```bash
+  npm run deploy
+```
+
+### Notes
+
+Always run npm run build before deploying to catch issues early.
+First deployment may take 1–2 minutes. Subsequent deploys are fast.
+You can deploy as often as needed during development.
+
+
+### One-command update (most used):
+```bash
+npm run deploy
+```
+
+Just replace `YOUR-USERNAME` with the actual GitHub username before committing.
+
 
 ---
 
