@@ -48,7 +48,6 @@ export function ARRot() {
         playsInline
         muted
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ transform: 'scaleX(-1)' }} // optional: mirror front camera if needed
       />
 
         {/* FULL-WIDTH BLUE TOP BAR */}
