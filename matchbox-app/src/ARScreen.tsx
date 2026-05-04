@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 const ModelViewer = 'model-viewer' as unknown as React.ElementType;
 
-export function ARScreen({onBack}: { onBack: () => void }) {
+// Diese Seite funktioniert jetzt mit richtigen Routen-Links.
+export function ARScreen() {
     return (
     <div className="fixed inset-0 bg-[#ffcc00] flex justify-center overflow-hidden">
       
@@ -13,7 +14,6 @@ export function ARScreen({onBack}: { onBack: () => void }) {
         <Link 
           to="/select-extinguisher" 
           className="hover:opacity-80 transition-opacity"
-          onClick={onBack}
         >
           <img
             src={`${import.meta.env.BASE_URL}arrow.png`}

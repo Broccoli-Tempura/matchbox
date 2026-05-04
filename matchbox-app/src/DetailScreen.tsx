@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom';
 // Unser bewährter TypeScript-Trick
 const ModelViewer = 'model-viewer' as unknown as React.ElementType;
 
-// Diese Seite bekommt zwei Funktionen mit:
-// 1. onBack (um zum Startbildschirm zurückzukehren)
-// 2. onOpenAR (um die echte AR-Kamera-Ansicht zu starten)
-export function DetailScreen({ onBack, onOpenAR }: { onBack: () => void, onOpenAR: () => void }) {
+// Diese Seite funktioniert jetzt mit richtigen Routen-Links.
+export function DetailScreen() {
     return (
         <div className="fixed inset-0 bg-blue-500 flex justify-center overflow-hidden">
       
@@ -17,7 +15,6 @@ export function DetailScreen({ onBack, onOpenAR }: { onBack: () => void, onOpenA
                 <Link 
                   to="/select-extinguisher" 
                   className="hover:opacity-80 transition-opacity"
-                  onClick={onBack}
                 >
                   <img
                     src={`${import.meta.env.BASE_URL}arrow.png`}
